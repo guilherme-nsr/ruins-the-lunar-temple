@@ -20,7 +20,7 @@
 [ext_resource path="res://assets/inimigos/movimentação/1_enemies_1_walk_008.png" type="Texture" id=18]
 [ext_resource path="res://assets/inimigos/movimentação/1_enemies_1_walk_007.png" type="Texture" id=19]
 [ext_resource path="res://assets/inimigos/movimentação/1_enemies_1_walk_003.png" type="Texture" id=20]
-[ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=21]
+[ext_resource path="res://src/Actors/Escorpião/Scripts/Enemy.gd" type="Script" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -40,7 +40,7 @@ script = ExtResource( 21 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walk"
-frame = 1
+frame = 8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
