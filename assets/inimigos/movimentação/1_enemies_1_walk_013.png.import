@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1_enemies_1_walk_012.png-a72ded4ebf0521a6892d86af6ac1757e.stex"
+path="res://.import/1_enemies_1_walk_013.png-fde716e4dc93b9d4cc8ad71cd13ec80a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/1_enemies_1_walk_012.png"
-dest_files=[ "res://.import/1_enemies_1_walk_012.png-a72ded4ebf0521a6892d86af6ac1757e.stex" ]
+source_file="res://assets/inimigos/movimentação/1_enemies_1_walk_013.png"
+dest_files=[ "res://.import/1_enemies_1_walk_013.png-fde716e4dc93b9d4cc8ad71cd13ec80a.stex" ]
 
 [params]
 
