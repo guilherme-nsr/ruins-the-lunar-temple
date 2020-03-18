@@ -12,7 +12,7 @@ var agachado = false
 var forca_deslizar = FORCA_DESLIZAR_PADRAO
 
 func _physics_process(delta):
-	
+
 	movimento.y += GRAVIDADE * delta
 	if Input.is_action_pressed("agachar") and Input.is_action_pressed("mover_direita") and !pulando:
 		$PlayerSprite.flip_h = false
@@ -72,3 +72,11 @@ func _physics_process(delta):
 		
 	movimento = move_and_slide(movimento, CIMA)
 	
+
+
+func _on_Timer_timeout():
+	$PlayerSprite.play("Morrendo")
+	set_physics_process(false)
+	get_tree().get_nodes_in_group("cronometro")[0].stop()
+	get_parent().reduzir_um_seg_cronometro()
+	get_parent().mudar_texto("Você morreu.")
