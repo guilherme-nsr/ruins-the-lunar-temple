@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/Actors/Besta/Scripts/Flecha.gd" type="Script" id=1]
+[ext_resource path="res://src/Objects/Besta/Scripts/Flecha.gd" type="Script" id=1]
 [ext_resource path="res://assets/armadilhas/bestas/flecha/flecha.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]

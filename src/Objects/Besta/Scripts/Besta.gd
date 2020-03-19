@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const FLECHA = preload("res://src/Actors/Besta/Flecha.tscn")
+const FLECHA = preload("res://src/Objects/Besta/Flecha.tscn")
 
 func _ready():
 	pass # Replace with function body.

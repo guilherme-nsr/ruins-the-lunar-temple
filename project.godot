@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ruins"
-run/main_scene="res://src/Actors/Mapas/MundoTeste.tscn"
+run/main_scene="res://src/Levels/Mapas/MundoTeste.tscn"
 config/icon="res://icon.png"
 
 [display]
