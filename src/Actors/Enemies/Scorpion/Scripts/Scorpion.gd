@@ -8,7 +8,11 @@ var _velocity: = Vector2.ZERO;
 
 func _ready() -> void:
 	_velocity.x = speed.x;
+	_velocity.y = speed.y;
 
 func _physics_process(delta: float) -> void:
+	_velocity.y += gravity*delta;
+	if is_on_wall() :
+		_velocity.x *= -1.0;
 	$AnimatedSprite.flip_h = _velocity.x < 0;
-	move_and_slide(_velocity, FLOOR_NORMAL);
+	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y;
