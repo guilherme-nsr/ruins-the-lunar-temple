@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/mundo/moving_platform.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Objects/Besta/Besta.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Levels/Mapas/Scripts/MundoTeste.gd" type="Script" id=4]
+[ext_resource path="res://src/Objects/Estatua_fogo/estatua/estatua.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 92.36, 27 )
@@ -52,7 +53,7 @@ position = Vector2( 374.345, 366.153 )
 flip_h = true
 
 [node name="Node2D2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 612.882, 365.723 )
+position = Vector2( 379.612, 209.8 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 480.261, 276.365 )
@@ -82,6 +83,9 @@ __meta__ = {
 "cronometro",
 ]]
 autostart = true
+
+[node name="estatua" parent="." instance=ExtResource( 5 )]
+position = Vector2( 741.565, 370.491 )
 [connection signal="script_changed" from="Tempo morte" to="." method="_on_Tempo_morte_script_changed"]
 [connection signal="timeout" from="Tempo morte" to="Player" method="_on_Timer_timeout"]
 [connection signal="timeout" from="cronometro" to="." method="_on_cronometro_timeout"]
