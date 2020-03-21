@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/armadilhas/estatuas de fogo/fogo/fogo.png" type="Texture" id=1]
+[ext_resource path="res://src/Objects/Estatua_fogo/Fogo/Script/Fogo.gd" type="Script" id=2]
+[ext_resource path="res://assets/armadilhas/estatuas de fogo/fogo/fogo2.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "fogo",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 128, 32 )
+
+[node name="Fogo" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="SpriteFogo" type="AnimatedSprite" parent="."]
+position = Vector2( 128, 0 )
+frames = SubResource( 2 )
+animation = "fogo"
+frame = 1
+
+[node name="CollisionShapeFogo" type="CollisionShape2D" parent="."]
+position = Vector2( 128, 0 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Fogo_body_entered"]
