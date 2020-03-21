@@ -13,7 +13,7 @@ extents = Vector2( 10, 31.5009 )
 [node name="EnemiesTest" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 478.551, 206.163 )
+position = Vector2( 367.408, 216.502 )
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2( 94.3114, 330.935 )
@@ -63,7 +63,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="PlayerBody" parent="." instance=ExtResource( 2 )]
-position = Vector2( 253.632, 212.526 )
+position = Vector2( 99.632, 206.526 )
 
 [node name="GroundLimitToEnemies" type="StaticBody2D" parent="."]
 position = Vector2( 10.702, 270.103 )

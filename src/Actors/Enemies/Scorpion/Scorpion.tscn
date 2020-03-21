@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/inimigos/movimentação/1_enemies_1_walk_000.png" type="Texture" id=1]
 [ext_resource path="res://assets/inimigos/movimentação/1_enemies_1_walk_018.png" type="Texture" id=2]
@@ -31,7 +31,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 83.5449, 82.2804 )
+extents = Vector2( 69.1052, 69.2578 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 86.4006, 85.7914 )
 
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 139.312, 299.46 )
@@ -43,9 +46,18 @@ script = ExtResource( 21 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walk"
-frame = 3
+frame = 15
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 6.00162, 18.0049 )
+position = Vector2( 10.1907, 24.6986 )
 shape = SubResource( 2 )
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+self_modulate = Color( 0.0745098, 0.247059, 0.921569, 1 )
+position = Vector2( 11.0082, 23.0597 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
