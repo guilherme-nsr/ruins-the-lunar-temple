@@ -85,7 +85,7 @@ __meta__ = {
 autostart = true
 
 [node name="estatua" parent="." instance=ExtResource( 5 )]
-position = Vector2( 741.565, 370.491 )
+position = Vector2( 732.971, 275.955 )
 [connection signal="script_changed" from="Tempo morte" to="." method="_on_Tempo_morte_script_changed"]
 [connection signal="timeout" from="Tempo morte" to="Player" method="_on_Timer_timeout"]
 [connection signal="timeout" from="cronometro" to="." method="_on_cronometro_timeout"]
@@ -95,3 +95,5 @@ position = Vector2( 741.565, 370.491 )
 [editable path="Node2D2"]
 
 [editable path="Player"]
+
+[editable path="estatua"]

@@ -26,7 +26,7 @@ func _on_Timer_timeout():
 			if sign($Position2D.position.x) == -1:
 				$Position2D.position.x *= 1
 		get_parent().add_child(fogo)
-		fogo.position = $Position2D.global_position
+		fogo.global_position = $Position2D.global_position
 		fogo_instanciado = true
 	else:
 		fogo.queue_free()
