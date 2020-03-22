@@ -9,7 +9,7 @@ func _ready():
 	
 func _on_HitDetector_body_entered(body):
 	if body.get_filename().get_file() == "Player.tscn":
-		body.position = Vector2(480.261, 276.365)
+		body.morrer()
 
 func mudar_direcao_flecha(dir):
 	direcao = dir
