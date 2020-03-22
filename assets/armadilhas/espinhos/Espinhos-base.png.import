@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/oie_transparent.png-45d588416ca49ffeee993629b784a837.stex"
+path="res://.import/Espinhos-base.png-605fa14d2204d8f07c99cb35dedb53c0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Actors/Player/oie_transparent.png"
-dest_files=[ "res://.import/oie_transparent.png-45d588416ca49ffeee993629b784a837.stex" ]
+source_file="res://assets/armadilhas/espinhos/Espinhos-base.png"
+dest_files=[ "res://.import/Espinhos-base.png-605fa14d2204d8f07c99cb35dedb53c0.stex" ]
 
 [params]
 

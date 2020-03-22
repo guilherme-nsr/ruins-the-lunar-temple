@@ -89,3 +89,7 @@ shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Reiniciar_a_fase" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="timeout" from="Reiniciar_a_fase" to="." method="_on_Reiniciar_a_fase_timeout"]

@@ -71,12 +71,20 @@ func _physics_process(delta):
 		
 		
 	movimento = move_and_slide(movimento, CIMA)
-	
 
+func reiniciar_fase():
+	get_tree().reload_current_scene()
 
-func _on_Timer_timeout():
+func morrer():
 	$PlayerSprite.play("Morrendo")
 	set_physics_process(false)
 	get_tree().get_nodes_in_group("cronometro")[0].stop()
 	get_parent().reduzir_um_seg_cronometro()
 	get_parent().mudar_texto("Você morreu.")
+	$Reiniciar_a_fase.start()
+
+func _on_Timer_timeout():
+	morrer()
+
+func _on_Reiniciar_a_fase_timeout():
+	reiniciar_fase()
