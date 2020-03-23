@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Objects/Chicote/Script/Chicote.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 32 )
+
+[node name="Chicote" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 0.117647, 0.509804, 0.662745, 1 )
+position = Vector2( 64, 0 )
+shape = SubResource( 1 )
+
+[node name="tempo_de_vida" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+[connection signal="timeout" from="tempo_de_vida" to="." method="_on_tempo_de_vida_timeout"]

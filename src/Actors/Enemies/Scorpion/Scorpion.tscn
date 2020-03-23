@@ -46,7 +46,7 @@ script = ExtResource( 21 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walk"
-frame = 15
+frame = 17
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -54,10 +54,13 @@ position = Vector2( 10.1907, 24.6986 )
 shape = SubResource( 2 )
 
 [node name="PlayerDetector" type="Area2D" parent="."]
-collision_layer = 0
+position = Vector2( -1.47021, -1.47021 )
+collision_layer = 2
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 self_modulate = Color( 0.0745098, 0.247059, 0.921569, 1 )
 position = Vector2( 11.0082, 23.0597 )
 shape = SubResource( 3 )
+[connection signal="area_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_area_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
