@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const FLOOR_NORMAL: = Vector2.UP;
 
-export var speed: = Vector2(100.0, 1000.0);
+export var speed: = Vector2(150.0, 1000.0);
 export var gravity: =  3000.0;
 var _velocity: = Vector2.ZERO;
 
@@ -20,8 +20,3 @@ func _physics_process(delta: float) -> void:
 func _on_PlayerDetector_body_entered(body: Node) -> void:
 	if body.get_filename().get_file() == "Player.tscn":
 		body.position = Vector2(75.0, 250.0)
-	
-
-func _on_PlayerDetector_area_entered(area):
-	if area.get_filename().get_file() == "Chicote.tscn":
-		queue_free()
