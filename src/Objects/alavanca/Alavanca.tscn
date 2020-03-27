@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/alavanca/alavanca.png" type="Texture" id=1]
+[ext_resource path="res://src/Objects/alavanca/Script/Alavanca.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="Alavanca" type="Area2D"]
+monitorable = false
+collision_layer = 0
+script = ExtResource( 2 )
+
+[node name="CollisionShapeAlavanca" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="SpriteAlavanca" type="Sprite" parent="."]
+position = Vector2( 2.38419e-07, 4.76837e-07 )
+scale = Vector2( 0.209836, 0.261224 )
+texture = ExtResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Alavanca_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Alavanca_body_exited"]
