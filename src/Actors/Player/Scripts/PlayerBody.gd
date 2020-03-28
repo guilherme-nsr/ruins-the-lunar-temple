@@ -92,6 +92,7 @@ func _physics_process(delta):
 	movimento = move_and_slide(movimento, CIMA)
 
 func reiniciar_fase():
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 
 func morrer():
@@ -102,4 +103,5 @@ func morrer():
 		get_parent().reduzir_um_seg_cronometro()
 		get_parent().mudar_texto("Você morreu.")
 	yield($PlayerSprite, "animation_finished")
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()

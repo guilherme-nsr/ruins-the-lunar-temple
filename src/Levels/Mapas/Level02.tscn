@@ -9,7 +9,7 @@
 [ext_resource path="res://src/Levels/Mapas/WellDone/WellDone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Levels/Mapas/Level03.tscn" type="PackedScene" id=8]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 3 )
 
@@ -67,7 +67,7 @@ margin_left = 16.0492
 margin_top = -277.295
 margin_right = 741.049
 margin_bottom = -182.295
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 1 )
 tab_size = 2
 text = "Use a tecla E para ativar a alavanca."
 __meta__ = {
