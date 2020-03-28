@@ -1,0 +1,159 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/mundo/moving_platform.png" type="Texture" id=2]
+[ext_resource path="res://fonts/RobotoMono-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/mundo/moving_platform2.jpg" type="Texture" id=4]
+[ext_resource path="res://src/Levels/Mapas/Scripts/Level04.gd" type="Script" id=5]
+[ext_resource path="res://src/Objects/alavanca/Porta_alavanca.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/alavanca/Alavanca.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Espinhos/Espinhos.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Objects/Espinhos/Espinhos_dinamicos.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Levels/Mapas/WellDone/WellDone.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Levels/Mapas/Level05.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=4]
+0/name = "moving_platform.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 64, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "moving_platform2.jpg 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 93.5957, 354.72 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="Level04" type="Node2D"]
+position = Vector2( 2.0506, -444.969 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_vertical_guides_": [ 4547.95, 4361.29, 4356.74, 3467.71 ]
+}
+
+[node name="Tutorial Cronometro" type="RichTextLabel" parent="."]
+margin_left = 35.0
+margin_top = 144.0
+margin_right = 581.0
+margin_bottom = 239.0
+custom_fonts/normal_font = SubResource( 1 )
+tab_size = 2
+text = "Sempre fique de olho no tempo!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerBody" parent="." instance=ExtResource( 1 )]
+position = Vector2( 146.304, 327.574 )
+
+[node name="Camera2D" parent="PlayerBody" index="2"]
+limit_right = 3468
+
+[node name="Espinhos" parent="." instance=ExtResource( 8 )]
+position = Vector2( 701.17, 412.82 )
+
+[node name="Porta_alavanca" parent="." groups=[
+"alavanca1",
+] instance=ExtResource( 6 )]
+position = Vector2( 1889.81, 253.976 )
+
+[node name="Alavanca" parent="." instance=ExtResource( 7 )]
+position = Vector2( 32.4769, -286.137 )
+grupo_alavanca_nome = "alavanca1"
+
+[node name="EspinhoDinamico" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2722.21, -467.229 )
+
+[node name="Terreno" type="TileMap" parent="."]
+tile_set = SubResource( 4 )
+collision_layer = 4
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -786435, 1, 0, -786434, 1, 0, -786433, 1, 0, -851968, 1, 0, -851967, 1, 0, -851966, 1, 0, -851965, 1, 0, -851964, 1, 0, -851963, 1, 0, -851962, 1, 0, -851961, 1, 0, -851960, 1, 0, -851959, 1, 0, -851958, 1, 0, -851957, 1, 0, -851956, 1, 0, -851955, 1, 0, -851954, 1, 0, -851953, 1, 0, -851952, 1, 0, -851951, 1, 0, -851950, 1, 0, -851949, 1, 0, -851948, 1, 0, -851947, 1, 0, -851946, 1, 0, -851945, 1, 0, -851944, 1, 0, -851943, 1, 0, -851942, 1, 0, -851941, 1, 0, -851940, 1, 0, -851939, 1, 0, -851938, 1, 0, -851937, 1, 0, -851936, 1, 0, -851935, 1, 0, -851934, 1, 0, -851933, 1, 0, -851932, 1, 0, -851931, 1, 0, -851930, 1, 0, -851929, 1, 0, -851928, 1, 0, -851927, 1, 0, -851926, 1, 0, -851925, 1, 0, -851924, 1, 0, -851923, 1, 0, -851922, 1, 0, -851921, 1, 0, -851920, 1, 0, -851919, 1, 0, -851918, 1, 0, -851917, 1, 0, -851916, 1, 0, -851915, 1, 0, -720899, 1, 0, -720898, 1, 0, -720897, 1, 0, -786412, 1, 0, -786411, 1, 0, -786410, 1, 0, -786409, 1, 0, -786408, 1, 0, -786407, 1, 0, -786406, 1, 0, -786405, 1, 0, -786404, 1, 0, -786403, 1, 0, -786402, 1, 0, -786391, 1, 0, -786390, 1, 0, -786389, 1, 0, -655363, 1, 0, -655362, 1, 0, -655361, 1, 0, -720876, 1, 0, -720875, 1, 0, -720874, 1, 0, -720873, 1, 0, -720872, 1, 0, -720871, 1, 0, -720870, 1, 0, -720869, 1, 0, -720868, 1, 0, -720867, 1, 0, -720866, 1, 0, -720855, 1, 0, -720854, 1, 0, -720853, 1, 0, -589827, 1, 0, -589826, 1, 0, -589825, 1, 0, -655340, 1, 0, -655339, 1, 0, -655338, 1, 0, -655337, 1, 0, -655336, 1, 0, -655335, 1, 0, -655334, 1, 0, -655333, 1, 0, -655332, 1, 0, -655331, 1, 0, -655330, 1, 0, -655319, 1, 0, -655318, 1, 0, -655317, 1, 0, -524291, 1, 0, -524290, 1, 0, -524289, 1, 0, -589804, 1, 0, -589803, 1, 0, -589802, 1, 0, -589801, 1, 0, -589800, 1, 0, -589799, 1, 0, -589798, 1, 0, -589797, 1, 0, -589796, 1, 0, -589795, 1, 0, -589794, 1, 0, -589783, 1, 0, -589782, 1, 0, -589781, 1, 0, -458755, 1, 0, -458754, 1, 0, -458753, 1, 0, -524268, 1, 0, -524267, 1, 0, -524266, 1, 0, -524265, 1, 0, -524264, 1, 0, -524263, 1, 0, -524262, 1, 0, -524261, 1, 0, -524260, 1, 0, -524259, 1, 0, -524258, 1, 0, -393219, 1, 0, -393218, 1, 0, -393217, 1, 0, -458732, 1, 0, -458731, 1, 0, -458730, 1, 0, -458729, 1, 0, -458728, 1, 0, -458727, 1, 0, -458726, 1, 0, -458725, 1, 0, -458724, 1, 0, -458723, 1, 0, -458722, 1, 0, -327683, 1, 0, -327682, 1, 0, -327681, 1, 0, -393196, 1, 0, -393195, 1, 0, -393194, 1, 0, -393193, 1, 0, -393192, 1, 0, -393191, 1, 0, -393190, 1, 0, -393189, 1, 0, -393188, 1, 0, -393187, 1, 0, -393186, 1, 0, -327660, 1, 0, -327659, 1, 0, -327658, 1, 0, -327657, 1, 0, -327656, 1, 0, -327655, 1, 0, -327654, 1, 0, -327653, 1, 0, -327652, 1, 0, -327651, 1, 0, -327650, 1, 0, -327644, 0, 0, -327640, 0, 0, -327639, 0, 0, -327638, 0, 0, -327637, 0, 0, -327636, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262124, 1, 0, -262123, 1, 0, -262122, 1, 0, -262121, 1, 0, -262120, 1, 0, -262119, 1, 0, -262118, 1, 0, -262117, 1, 0, -262116, 1, 0, -262115, 1, 0, -262114, 1, 0, -262110, 0, 0, -262109, 0, 0, -262108, 0, 0, -262104, 1, 0, -262103, 1, 0, -262102, 1, 0, -262101, 1, 0, -262100, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -196605, 1, 0, -196604, 1, 0, -196588, 1, 0, -196587, 1, 0, -196586, 1, 0, -196585, 1, 0, -196584, 1, 0, -196583, 1, 0, -196582, 1, 0, -196581, 1, 0, -196580, 1, 0, -196579, 1, 0, -196578, 1, 0, -196577, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131052, 1, 0, -131051, 1, 0, -131050, 1, 0, -131049, 1, 0, -131048, 1, 0, -131047, 1, 0, -131046, 1, 0, -131045, 1, 0, -131044, 1, 0, -131043, 1, 0, -131042, 1, 0, -131041, 0, 0, -131024, 0, 0, -131023, 0, 0, -131022, 0, 0, -131021, 0, 0, -131020, 0, 0, -131019, 0, 0, -131018, 0, 0, -131017, 0, 0, -131016, 0, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0, -65509, 1, 0, -65508, 1, 0, -65507, 1, 0, -65506, 1, 0, -65505, 0, 0, -65504, 0, 0, -65488, 1, 0, -65487, 1, 0, -65486, 1, 0, -65485, 1, 0, -65484, 1, 0, -65483, 1, 0, -65482, 1, 0, -65481, 1, 0, -65480, 1, 0, 12, 0, 0, 13, 0, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 23, 1, 0, 24, 1, 0, 25, 1, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 1, 0, 30, 1, 0, 31, 1, 0, 32, 1, 0, 33, 0, 0, 48, 1, 0, 49, 1, 0, 50, 1, 0, 51, 1, 0, 52, 1, 0, 53, 1, 0, 54, 1, 0, 55, 1, 0, 56, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65566, 1, 0, 65572, 0, 0, 65573, 0, 0, 65574, 0, 0, 65584, 1, 0, 65585, 1, 0, 65586, 1, 0, 65587, 1, 0, 65588, 1, 0, 65589, 1, 0, 65590, 1, 0, 65591, 1, 0, 65592, 1, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 1, 0, 131113, 0, 0, 131119, 1, 0, 131120, 1, 0, 131121, 1, 0, 131122, 1, 0, 131123, 1, 0, 131124, 1, 0, 131125, 1, 0, 131126, 1, 0, 131127, 1, 0, 131128, 1, 0, 196623, 0, 0, 196624, 1, 0, 196625, 1, 0, 196626, 1, 0, 196627, 1, 0, 196628, 1, 0, 196649, 0, 0, 196655, 1, 0, 196656, 1, 0, 196657, 1, 0, 196658, 1, 0, 196659, 1, 0, 196660, 1, 0, 196661, 1, 0, 196662, 1, 0, 196663, 1, 0, 196664, 1, 0, 262158, 0, 0, 262183, 0, 0, 262184, 0, 0, 262185, 1, 0, 262191, 1, 0, 262192, 1, 0, 262193, 1, 0, 262194, 1, 0, 262195, 1, 0, 262196, 1, 0, 262197, 1, 0, 262198, 1, 0, 262199, 1, 0, 262200, 1, 0, 327718, 0, 0, 327719, 0, 0, 327720, 1, 0, 327721, 1, 0, 327727, 1, 0, 327728, 1, 0, 327729, 1, 0, 327730, 1, 0, 327731, 1, 0, 327732, 1, 0, 327733, 1, 0, 327734, 1, 0, 327735, 1, 0, 327736, 1, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0, 393250, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0, 393255, 1, 0, 393256, 1, 0, 393257, 1, 0, 393263, 1, 0, 393264, 1, 0, 393265, 1, 0, 393266, 1, 0, 393267, 1, 0, 393268, 1, 0, 393269, 1, 0, 393270, 1, 0, 393271, 1, 0, 393272, 1, 0 )
+
+[node name="FimTerreno" type="StaticBody2D" parent="."]
+position = Vector2( 3554.73, -475.564 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FimTerreno"]
+shape = SubResource( 5 )
+
+[node name="InicioTerreno" type="StaticBody2D" parent="."]
+position = Vector2( -93.9628, 33.8752 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InicioTerreno"]
+shape = SubResource( 5 )
+
+[node name="Temporizador" type="Timer" parent="."]
+autostart = true
+
+[node name="Cronometro" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Cronometro" groups=[
+"tempo",
+]]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Espinhos2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2736.42, 416.94 )
+
+[node name="Espinhos3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2841.65, 416.94 )
+
+[node name="Espinhos4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2949.27, 416.94 )
+
+[node name="WellDone" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3307.06, -130.848 )
+proximoLevel = ExtResource( 11 )
+[connection signal="timeout" from="Temporizador" to="." method="_on_Timer_timeout"]
+
+[editable path="PlayerBody"]

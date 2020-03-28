@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/mundo/moving_platform.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Enemies/Scorpion/Scorpion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/Enemies/Spider/Spider.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 93.6239, 29.285 )
@@ -11,6 +12,10 @@ extents = Vector2( 93.6239, 29.285 )
 extents = Vector2( 10, 31.5009 )
 
 [node name="EnemiesTest" type="Node2D"]
+position = Vector2( 1.36041, -361.861 )
+
+[node name="Spider" parent="." instance=ExtResource( 4 )]
+position = Vector2( 577.705, 233.083 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 367.408, 216.502 )

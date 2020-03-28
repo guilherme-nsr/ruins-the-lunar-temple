@@ -82,13 +82,13 @@ extents = Vector2( 163.533, 107.796 )
 position = Vector2( 303.68, 245.3 )
 scale = Vector2( 0.25, 0.25 )
 collision_layer = 2
-collision_mask = 5
+collision_mask = 37
 script = ExtResource( 63 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walk"
-frame = 34
+frame = 48
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -96,9 +96,17 @@ position = Vector2( 16.4432, 8.82202 )
 shape = SubResource( 2 )
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 self_modulate = Color( 0.0156863, 0.25098, 0.882353, 1 )
 position = Vector2( 16.9276, -7.10033 )
 shape = SubResource( 3 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+rect = Rect2( -180, -10, 400, 120 )
+process_parent = true
+physics_process_parent = true
+[connection signal="area_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_area_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

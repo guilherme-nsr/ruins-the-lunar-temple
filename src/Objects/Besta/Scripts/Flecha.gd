@@ -19,6 +19,7 @@ func mudar_direcao_flecha(dir):
 		$Sprite.flip_h = true
 
 func _physics_process(delta):
+	
 	movimento.x = VELOCIDADE * delta * direcao
 	translate(movimento)
 
