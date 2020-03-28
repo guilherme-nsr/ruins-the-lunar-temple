@@ -10,6 +10,7 @@ var movimento = Vector2()
 var pulando = false
 var agachado = false
 var forca_deslizar = FORCA_DESLIZAR_PADRAO
+var morrendo = false
 
 var CHICOTE = preload("res://src/Objects/Chicote/Chicote.tscn")
 var chicote
@@ -96,12 +97,10 @@ func reiniciar_fase():
 	get_tree().reload_current_scene()
 
 func morrer():
-	$PlayerSprite.play("Morrendo")
-	set_physics_process(false)
-	if get_tree().get_nodes_in_group("cronometro"):
-		get_tree().get_nodes_in_group("cronometro")[0].stop()
-		get_parent().reduzir_um_seg_cronometro()
-		get_parent().mudar_texto("Você morreu.")
-	yield($PlayerSprite, "animation_finished")
-# warning-ignore:return_value_discarded
-	get_tree().reload_current_scene()
+	if not morrendo:
+		$PlayerSprite.play("Morrendo")
+		set_physics_process(false)
+		morrendo = true
+		yield($PlayerSprite, "animation_finished")
+	# warning-ignore:return_value_discarded
+		get_tree().reload_current_scene()

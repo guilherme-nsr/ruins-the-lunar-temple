@@ -15,6 +15,7 @@ func update_time():
 
 
 func _on_Temporizador_timeout():
-	reduzir_um_seg_cronometro()
 	if tempo <= 0:
 		get_node("PlayerBody").morrer()
+	else:
+		reduzir_um_seg_cronometro()

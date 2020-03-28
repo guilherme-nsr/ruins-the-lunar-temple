@@ -10,7 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player_presente and Input.is_action_just_pressed("ação"):
+	if player_presente and Input.is_action_just_pressed("acao"):
 		$SpriteAlavanca.flip_h = true
 		get_tree().get_nodes_in_group(grupo_alavanca_nome)[0].ativar()
 		set_process(false)
