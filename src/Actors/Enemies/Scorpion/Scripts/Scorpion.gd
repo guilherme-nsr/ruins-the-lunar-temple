@@ -7,6 +7,7 @@ export var gravity: =  3000.0;
 var _velocity: = Vector2.ZERO;
 
 func _ready() -> void:
+	set_physics_process(false)
 	_velocity = speed;
 
 func _physics_process(delta: float) -> void:

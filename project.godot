@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ruins"
-run/main_scene="res://src/Levels/Mapas/MundoTeste.tscn"
+run/main_scene="res://src/Screens/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -86,6 +86,7 @@ olhar_cima={
 2d_physics/layer_3="Mapa"
 2d_physics/layer_4="Armadilhas"
 2d_physics/layer_5="Chicote"
+2d_physics/layer_6="Muro_Invisivel"
 
 [rendering]
 

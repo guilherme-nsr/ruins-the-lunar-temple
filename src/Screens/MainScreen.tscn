@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Menu/Titulo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/menu/backgroud.PNG" type="Texture" id=2]
+[ext_resource path="res://src/Menu/Sair.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Menu/Iniciar.tscn" type="PackedScene" id=4]
+
+[node name="MainScreen" type="ReferenceRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backgroud" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Titulo" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -198.0
+margin_top = 119.949
+margin_right = 198.0
+margin_bottom = 160.949
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.0
+margin_top = -63.0
+margin_right = 193.0
+margin_bottom = 63.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Iniciar" parent="Menu" instance=ExtResource( 4 )]
+proxima_cena = "res://src/Levels/Mapas/Level01.tscn"
+
+[node name="Sair" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 65.0
+margin_bottom = 126.0

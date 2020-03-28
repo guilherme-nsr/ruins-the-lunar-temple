@@ -4,7 +4,7 @@ const CIMA = Vector2.UP
 const GRAVIDADE = 1700.0
 const VELOCIDADE = 200.0
 const FORCA_PULO = -750.0
-const FORCA_DESLIZAR_PADRAO = 300.0
+const FORCA_DESLIZAR_PADRAO = 400.0
 
 var movimento = Vector2()
 var pulando = false
@@ -60,8 +60,9 @@ func _physics_process(delta):
 		$PlayerShape.scale = Vector2(1, 0.5)
 		agachado = true
 		forca_deslizar = FORCA_DESLIZAR_PADRAO
-	elif Input.is_action_pressed("chicotear"):
+	elif Input.is_action_just_pressed("chicotear"):
 		$PlayerSprite.play("Chicoteando")
+		set_physics_process(false)
 		if is_on_floor():
 			movimento.x = 0.0
 		chicote = CHICOTE.instance()
@@ -69,7 +70,8 @@ func _physics_process(delta):
 		chicote.global_position = $Position2D.global_position
 		if sign($Position2D.position.x) == -1:
 			chicote.mudar_direcao()
-		
+		yield($PlayerSprite,"animation_finished")
+		set_physics_process(true)
 	else:
 		forca_deslizar = FORCA_DESLIZAR_PADRAO
 		movimento.x = 0.0
@@ -95,13 +97,9 @@ func reiniciar_fase():
 func morrer():
 	$PlayerSprite.play("Morrendo")
 	set_physics_process(false)
-	get_tree().get_nodes_in_group("cronometro")[0].stop()
-	get_parent().reduzir_um_seg_cronometro()
-	get_parent().mudar_texto("Você morreu.")
-	$Reiniciar_a_fase.start()
-
-func _on_Timer_timeout():
-	morrer()
-
-func _on_Reiniciar_a_fase_timeout():
-	reiniciar_fase()
+	if get_tree().get_nodes_in_group("cronometro"):
+		get_tree().get_nodes_in_group("cronometro")[0].stop()
+		get_parent().reduzir_um_seg_cronometro()
+		get_parent().mudar_texto("Você morreu.")
+	yield($PlayerSprite, "animation_finished")
+	get_tree().reload_current_scene()
